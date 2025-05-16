@@ -12,8 +12,8 @@ We will ask a question that requires the Corvic agent to look up and reason thro
 
 ## ✅ Prerequisites
 
-1. Complete the setup steps in this [blog post](https://corvic.substack.com/p/automating-address-updates-with-corvic?open=false#%C2%A7the-corvic-solution-automation-without-overhead).
-2. Upload the [NAICS 2022 Manual PDF](https://www.census.gov/naics/reference_files_tools/2022_NAICS_Manual.pdf) and deploy your agent on Corvic’s platform.
+1. Complete the setup steps in this [blog post](https://corvic.substack.com/p/automating-address-updates-with-corvic?open=false#%C2%A7the-corvic-solution-automation-without-overhead){:target="_blank"}.
+2. Upload the [NAICS 2022 Manual PDF](https://www.census.gov/naics/reference_files_tools/2022_NAICS_Manual.pdf){:target="_blank"} and deploy your agent on Corvic’s platform.
 3. Once deployed, copy the MCP endpoint and access token.
 
 ---

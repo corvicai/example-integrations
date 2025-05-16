@@ -12,7 +12,7 @@ In this tutorial, you'll upload a parquet file containing data about video game 
 
 ## ✅ Prerequisites
 
-1. **Download the CSV Dataset**: Obtain the video game sales data from [Kaggle](https://www.kaggle.com/datasets/gregorut/videogamesales).
+1. **Download the CSV Dataset**: Obtain the video game sales data from [Kaggle](https://www.kaggle.com/datasets/gregorut/videogamesales){:target="_blank"}.
 
 2. **Convert CSV to Parquet**: Use Python to convert the CSV file to Parquet format:
 
@@ -23,7 +23,7 @@ In this tutorial, you'll upload a parquet file containing data about video game 
    df.to_parquet("vgsales.parquet", index=False)
    ```
 
-3. **Upload to Corvic**: Follow the documentation [here](https://frontend.corvic.dev/docs/howToUseCorvic/pipelines) to create an agent using this parquet file.
+3. **Upload to Corvic**: Follow the documentation [here](https://frontend.corvic.dev/docs/howToUseCorvic/pipelines){:target="_blank"} to create an agent using this parquet file.
 
 4. **Deploy the Agent**: Deploy the agent and obtain the MCP endpoint and access token.
 
