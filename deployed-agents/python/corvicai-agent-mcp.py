@@ -4,7 +4,7 @@ from mcp.client.sse import sse_client
 
 async def run():
     async with sse_client(
-            "<MCP_ENDPOINT>",  # Replace with your deployed agent's endpoint
+            "<YOUR_CORVIC_AI_MCP_ENDPOINT>",  # Replace with your deployed agent's endpoint
             headers={
                 "Authorization": "<YOUR_CORVIC_API_TOKEN>"  # Replace with your API token
             },
