@@ -5,16 +5,6 @@ This repository provides example integrations of the Corvic AI API with various 
 ## 📁 Repository Structure
 
 The repository is organized into directories for each supported platform or language:
-
-example-integrations/
-├── README.md
-├── deployed-agents/
-│   ├── python/
-│   ├── OpenAI/
-│   ├── CrewAI/
-│   ├── Langchain/
-│   └── FastAPI/
-
 - `python/`: Integration examples using Python.  
 - `OpenAI/`: Integration examples with OpenAI's API.  
 - `CrewAI/`: Integration examples with CrewAI platform.  
@@ -31,9 +21,11 @@ Each subdirectory contains:
 
 To get started with a specific integration:
 
-1. Navigate to the desired platform directory (e.g., `python/`).
-2. Follow the setup instructions provided in the `README.md` within that directory.
-3. Run the example code to see the Corvic AI API integration in action.
+1. **Use the Corvic AI platform** to develop and deploy production agentic applications on your enterprise data.
+2. **Obtain the MCP endpoint and access token** for the deployed application from the Corvic AI dashboard.
+3. Navigate to the desired platform directory (e.g., `python/`).
+4. Follow the setup instructions provided in the `README.md` within that directory.
+5. Run the example code to see the Corvic AI API integration in action.
 
 ## 📄 License
 
