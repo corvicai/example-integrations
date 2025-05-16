@@ -3,7 +3,7 @@ from agents.mcp import MCPServerSseParams, MCPServerSse
 
 async def run():
     params = MCPServerSseParams(
-        url="<MCP_ENDPOINT>",  # Replace with your deployed agent's endpoint
+        url="<YOUR_CORVIC_AI_MCP_ENDPOINT>",  # Replace with your deployed agent's endpoint
         headers={
             "Authorization": "<YOUR_CORVIC_API_TOKEN>"  # Replace with your API token
         },
