@@ -1,0 +1,22 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Swap files
+*.swp
+*.swo
+
