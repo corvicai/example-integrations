@@ -18,10 +18,13 @@ async def run():
 
     #
     agent = Agent(
-        name = "Assistant",
-        instructions = "Use the tools to answer the questions. Do not add any additional information.",
+        name="Analyst",
+        instructions="Use the tools to achieve the task",
         mcp_servers=[corvic_mcp_server]
     )
     #
-    result = await Runner.run(agent, "As per NAICS codes, Describe wheat farming.")
+    result = await Runner.run(agent, "Group all the data by name and find the top titles by "
+                                     "global sales. Output the name and the total global sales in a "
+                                     "tabular format.")
     print(result.final_output)
+    await corvic_mcp_server.cleanup()
