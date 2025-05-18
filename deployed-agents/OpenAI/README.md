@@ -32,14 +32,26 @@ In this tutorial, you'll upload a parquet file containing data about video game 
 ## 🧠 Question Asked
 
 ```text
-Provide the top performing titles as well as a bar chart in the output.
+Group all the data by name and find the top titles by global sales. 
+Output the name and the total global sales in a tabular format."
 ```
 
 ## 📤 Response
 
-The Corvic agent will process the parquet data and return a report highlighting the top-performing video game titles, accompanied by a bar chart visualization.
+The Corvic agent will process the parquet data and return a report including the top-performing video game titles.
 
-![Top Performing Titles](../../assets/images/output_gen_bi.png)
+| Title                       | Total Global Sales |
+| --------------------------- | ------------------ |
+| Grand Theft Auto V          | 64.29              |
+| Call of Duty: Black Ops     | 30.99              |
+| Call of Duty: Modern Warfare 3 | 30.71              |
+| Call of Duty: Black Ops II    | 29.59              |
+| Call of Duty: Ghosts          | 28.80              |
+| Call of Duty: Black Ops 3     | 26.72              |
+| Call of Duty: Modern Warfare 2 | 25.02              |
+| Minecraft                   | 24.01              |
+| Grand Theft Auto IV         | 22.53              |
+| Call of Duty: Advanced Warfare| 21.78              |
 
 ---
 
