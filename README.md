@@ -6,6 +6,7 @@ This repository provides example integrations of the Corvic AI API with various 
 
 The repository is organized into directories for each supported platform or language:
 - `python/`: Integration examples using Python.  
+- `Jupyter-notebook/`: Integration examples using Jupyter notebooks.  
 - `OpenAI/`: Integration examples with OpenAI's API.  
 - `CrewAI/`: Integration examples with CrewAI platform.  
 - `Langchain/`: Integration examples with Langchain framework.  
