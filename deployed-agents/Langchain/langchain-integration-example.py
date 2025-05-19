@@ -1,7 +1,7 @@
 import asyncio
 import os
 from langchain_mcp_adapters.tools import load_mcp_tools
-from langchain_community.tools.file_management import FileManagementToolkit
+from langchain_community.agent_toolkits import FileManagementToolkit
 from langgraph.prebuilt import create_react_agent
 from mcp import ClientSession
 from mcp.client.sse import sse_client
