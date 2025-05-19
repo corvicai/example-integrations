@@ -23,7 +23,7 @@ In this tutorial, you'll upload a parquet file containing data about video game 
    df.to_parquet("vgsales.parquet", index=False)
    ```
 
-3. **Upload to Corvic**: Follow the documentation [here](https://app.corvic.ai/docs/howToUseCorvic#create-pipelines) to create an agent using this parquet file.
+3. **Upload to Corvic**: Follow the documentation [here](https://app.corvic.ai/docs/howToUseCorvic/pipelines#create-pipelines) to create an agent using this parquet file.
 
 4. **Deploy the Agent**: Deploy the agent and obtain the MCP endpoint and access token.
 
@@ -33,7 +33,7 @@ In this tutorial, you'll upload a parquet file containing data about video game 
 
 ```text
 Group all the data by name and find the top titles by global sales. 
-Output the name and the total global sales in a tabular format."
+Output the name and the total global sales in a tabular format.
 ```
 
 ## 📤 Response
