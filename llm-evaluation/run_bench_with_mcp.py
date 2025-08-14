@@ -384,8 +384,6 @@ if __name__ == "__main__":
     _ = parser.add_argument("--mcp_url", type=str, help="MCP URL")
     _ = parser.add_argument("--token", type=str, help="MCP Token")
     _ = parser.add_argument("--eval_model", type=str, default="gpt-4o")
-    _ = parser.add_argument("--project_id", type=str, default="project_id_here")
-    _ = parser.add_argument("--location", type=str, default="us-central1")
 
     args = parser.parse_args()
 
