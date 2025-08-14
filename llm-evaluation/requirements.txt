@@ -1,0 +1,10 @@
+aiolimiter==1.2.1
+langchain-openai==0.3.30
+mcp==1.12.4
+polars==1.32.2
+ragas==0.3.1
+structlog==25.4.0
+tqdm==4.67.1
+langchain_google_vertexai==2.0.28
+Pillow==11.3.0
+
