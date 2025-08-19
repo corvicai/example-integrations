@@ -1,19 +1,20 @@
-import asyncio
 import httpx
 from fastapi import FastAPI, Form, BackgroundTasks
 from mcp import ClientSession
-from mcp.client.sse import sse_client
+from mcp.client.streamable_http import streamablehttp_client
 
 app = FastAPI()
 
 async def process_query_and_respond(text: str, response_url: str):
     try:
-        async with sse_client(
+        async with streamablehttp_client(
             "<YOUR_CORVIC_AI_MCP_ENDPOINT>",  # Replace with your Corvic MCP agent URL
             headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json, text/event-stream",
                 "Authorization": "YOUR-CORVIC-API-TOKEN"
             },
-        ) as (read, write):
+        ) as (read, write, session_id):
             async with ClientSession(read, write) as session:
                 await session.initialize()
                 result = await session.call_tool("query", arguments={"query_content": text})
