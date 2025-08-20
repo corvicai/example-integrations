@@ -4,18 +4,20 @@ from langchain_mcp_adapters.tools import load_mcp_tools
 from langchain_community.agent_toolkits import FileManagementToolkit
 from langgraph.prebuilt import create_react_agent
 from mcp import ClientSession
-from mcp.client.sse import sse_client
+from mcp.client.streamable_http import streamablehttp_client
 
 async def run():
     os.environ['OPENAI_API_KEY'] = 'YOUR-OPENAPI-KEY'
     token = 'YOUR-CORVIC-API-TOKEN'
 
-    async with sse_client(
+    async with streamablehttp_client(
             "<YOUR_CORVIC_AI_MCP_ENDPOINT>",  # Replace with your deployed agent's endpoint
             headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json, text/event-stream",
                 "Authorization": f"{token}"
             },
-    ) as (read, write):
+    ) as (read, write, session_id):
         async with ClientSession(read, write) as session:
             # Initialize the connection
             await session.initialize()
