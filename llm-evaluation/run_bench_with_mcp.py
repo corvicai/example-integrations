@@ -79,7 +79,7 @@ class E2EBenchmarkResult(BaseModel):
     query: str
     response: str
     ground_truth: str
-    score: float
+    score: float | None = None
     message_id: str | None = None
     latency: float | None = None
 
@@ -209,14 +209,17 @@ async def _process_row_sse_with_retry(
 
 
 @retry(stop=stop_after_attempt(3))
-async def _process_row_with_retry(
-    args: argparse.Namespace, problem: E2EBenchmarkProblem, index: int, total: int
+async def _process_row_with_retry_streamablehttp_client(
+    args: argparse.Namespace, problem: E2EBenchmarkProblem, evaluator_llm, llm_config, index: int, total: int
 ) -> E2EBenchmarkResult:
     async with (
         streamablehttp_client(
             args.mcp_url,
-            headers={"Authorization": args.token},
-            timeout=60,
+            headers={
+                "Content-Type": "application/json", 
+                "Accept": "application/json, text/event-stream",
+                "Authorization": args.token,
+            }
         ) as (read, write, _),
         ClientSession(read, write) as session,
     ):
@@ -230,6 +233,9 @@ async def _process_row_with_retry(
             response = await session.call_tool(
                 "query", arguments={"query_content": problem.query}
             )
+            #now score the result
+            #scored_response=await score_row(problem.query, response.content[0].text,problem.ground_truth,evaluator_llm, llm_config)
+
         except Exception as e:
             _logger.exception(
                 "Error asking agent",
@@ -260,10 +266,12 @@ async def _process_row_with_retry(
                 _logger.exception(
                     "Agent returned incorrect datatype", query=problem.query
                 )
+        #score=float(scored_response["score"])
         return E2EBenchmarkResult(
             id=problem.id,
             query=problem.query,
             response=answer,
+            #score=score,
             ground_truth=problem.ground_truth,
             message_id=message_id,
             latency=latency,
@@ -280,8 +288,8 @@ async def process_row(
         evaluator_llm = LangchainLLMWrapper(ChatOpenAI(**llm_config))
         _logger.info("LLM initialized", model=llm_config["model"])
 
-        # return await _process_row_with_retry(args, problem, index, total)
-        return await _process_row_sse_with_retry(args, problem, evaluator_llm,llm_config, index, total)
+        return await _process_row_with_retry_streamablehttp_client(args, problem, evaluator_llm,llm_config, index, total)
+        # return await _process_row_sse_with_retry(args, problem, evaluator_llm,llm_config, index, total)
     except Exception as e:
         _logger.exception(
             "Retries exhausted for agent query",
@@ -380,7 +388,7 @@ if __name__ == "__main__":
         "-m", "--message", type=str, help="Description of the change"
     )
     _ = parser.add_argument("--benchmark_file", type=str, default="bench.json")
-    _ = parser.add_argument("--num_workers", type=int, default=8)
+    _ = parser.add_argument("--num_workers", type=int, default=2)
     _ = parser.add_argument("--mcp_url", type=str, help="MCP URL")
     _ = parser.add_argument("--token", type=str, help="MCP Token")
     _ = parser.add_argument("--eval_model", type=str, default="gpt-4o")
