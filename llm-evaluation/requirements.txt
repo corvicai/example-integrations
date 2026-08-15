@@ -1,5 +1,5 @@
 aiolimiter==1.2.1
-langchain-openai==0.3.30
+langchain-openai==1.1.14
 mcp==1.28.1
 polars==1.32.2
 ragas==0.3.1
